@@ -59,3 +59,25 @@ public class Customer : iPhoneCustomer
             $"to {_state} as iPhone is {_iPhone.Availability}");
     }
 }
+
+///---------------
+var iphone = new iPhone();
+
+// Създаваме клиентите, които ще наблюдават обекта
+var customer1 = new Customer(iphone, "1");
+var customer2 = new Customer(iphone, "2");
+var customer3 = new Customer(iphone, "3");
+
+//добавяме клиент към листа
+iphone.AddCustomer(customer1);
+iphone.AddCustomer(customer2);
+iphone.AddCustomer(customer3);
+
+//Променяме състоянието на обекта
+//това автоматично ще промени и състоянието на клиентите
+iphone.Availability = "Available";
+
+//тук ги уведомяваме за наличието на айфона
+iphone.Notify();
+
+Console.ReadKey();
